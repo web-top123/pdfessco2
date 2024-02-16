@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div @mouseenter="openpreview(fileId)" 
+                    @mouseleave="hidepreview(fileId)">
         <div class="file columns" @mouseenter="hover = true" @mouseleave="hover = false">
-            <div class="column is-1">
+            <div class="column is-1" >
 
                 <input v-model="selected" :class="{hover : hover || selected}" class="styled-checkbox" :id="'input-' + fileId" type="checkbox">
-                <label :for="'input-' + fileId" ></label>
-                <a :href="data.path"  @mouseenter="openpreview(fileId)" 
-                    @mouseleave="hidepreview(fileId)"  target="_blank">
+                <label :for="'input-' + fileId"  ></label>
+                <a :href="data.path" target="_blank">
                     <i class="fa fa-eye" :class="{hover : hover || selected}"></i>
                 </a>
             
@@ -54,6 +54,7 @@ export default {
     methods:{
         openpreview(id)
         {
+            console.log(id);
             const el = document.querySelector('#iframe-'+id);
             el.classList.remove("hide");
         },

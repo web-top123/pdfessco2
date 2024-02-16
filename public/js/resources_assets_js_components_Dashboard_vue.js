@@ -1306,6 +1306,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     openpreview: function openpreview(id) {
+      console.log(id);
       var el = document.querySelector('#iframe-' + id);
       el.classList.remove("hide");
     },
@@ -11190,118 +11191,119 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      {
-        staticClass: "file columns",
-        on: {
-          mouseenter: function ($event) {
-            _vm.hover = true
-          },
-          mouseleave: function ($event) {
-            _vm.hover = false
-          },
+  return _c(
+    "div",
+    {
+      on: {
+        mouseenter: function ($event) {
+          return _vm.openpreview(_vm.fileId)
+        },
+        mouseleave: function ($event) {
+          return _vm.hidepreview(_vm.fileId)
         },
       },
-      [
-        _c("div", { staticClass: "column is-1" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.selected,
-                expression: "selected",
-              },
-            ],
-            staticClass: "styled-checkbox",
-            class: { hover: _vm.hover || _vm.selected },
-            attrs: { id: "input-" + _vm.fileId, type: "checkbox" },
-            domProps: {
-              checked: Array.isArray(_vm.selected)
-                ? _vm._i(_vm.selected, null) > -1
-                : _vm.selected,
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass: "file columns",
+          on: {
+            mouseenter: function ($event) {
+              _vm.hover = true
             },
-            on: {
-              change: function ($event) {
-                var $$a = _vm.selected,
-                  $$el = $event.target,
-                  $$c = $$el.checked ? true : false
-                if (Array.isArray($$a)) {
-                  var $$v = null,
-                    $$i = _vm._i($$a, $$v)
-                  if ($$el.checked) {
-                    $$i < 0 && (_vm.selected = $$a.concat([$$v]))
-                  } else {
-                    $$i > -1 &&
-                      (_vm.selected = $$a
-                        .slice(0, $$i)
-                        .concat($$a.slice($$i + 1)))
-                  }
-                } else {
-                  _vm.selected = $$c
-                }
-              },
+            mouseleave: function ($event) {
+              _vm.hover = false
             },
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "input-" + _vm.fileId } }),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              attrs: { href: _vm.data.path, target: "_blank" },
+          },
+        },
+        [
+          _c("div", { staticClass: "column is-1" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.selected,
+                  expression: "selected",
+                },
+              ],
+              staticClass: "styled-checkbox",
+              class: { hover: _vm.hover || _vm.selected },
+              attrs: { id: "input-" + _vm.fileId, type: "checkbox" },
+              domProps: {
+                checked: Array.isArray(_vm.selected)
+                  ? _vm._i(_vm.selected, null) > -1
+                  : _vm.selected,
+              },
               on: {
-                mouseenter: function ($event) {
-                  return _vm.openpreview(_vm.fileId)
-                },
-                mouseleave: function ($event) {
-                  return _vm.hidepreview(_vm.fileId)
+                change: function ($event) {
+                  var $$a = _vm.selected,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = null,
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.selected = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.selected = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.selected = $$c
+                  }
                 },
               },
-            },
-            [
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "input-" + _vm.fileId } }),
+            _vm._v(" "),
+            _c("a", { attrs: { href: _vm.data.path, target: "_blank" } }, [
               _c("i", {
                 staticClass: "fa fa-eye",
                 class: { hover: _vm.hover || _vm.selected },
               }),
-            ]
-          ),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "column is-file-details" }, [
-          _c(
-            "div",
-            {
-              ref: "fileTitle",
-              staticClass: "file-title",
-              class: { hover: _vm.hover || _vm.selected },
-              on: {
-                click: function ($event) {
-                  _vm.selected = !_vm.selected
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "column is-file-details" }, [
+            _c(
+              "div",
+              {
+                ref: "fileTitle",
+                staticClass: "file-title",
+                class: { hover: _vm.hover || _vm.selected },
+                on: {
+                  click: function ($event) {
+                    _vm.selected = !_vm.selected
+                  },
                 },
               },
-            },
-            [_vm._v(_vm._s(_vm.data.name))]
-          ),
-          _vm._v(" "),
-          _c("div", { ref: "scrollContent", staticClass: "file-description" }, [
-            _c("p", [_vm._v(" " + _vm._s(_vm.description) + " ")]),
+              [_vm._v(_vm._s(_vm.data.name))]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { ref: "scrollContent", staticClass: "file-description" },
+              [_c("p", [_vm._v(" " + _vm._s(_vm.description) + " ")])]
+            ),
           ]),
-        ]),
-      ]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "iframe-preview file columns hide",
-        attrs: { id: "iframe-" + _vm.fileId },
-      },
-      [_c("iframe", { attrs: { src: _vm.data.path } })]
-    ),
-  ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "iframe-preview file columns hide",
+          attrs: { id: "iframe-" + _vm.fileId },
+        },
+        [_c("iframe", { attrs: { src: _vm.data.path } })]
+      ),
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
