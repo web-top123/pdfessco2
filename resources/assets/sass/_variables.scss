@@ -1,0 +1,55 @@
+$right-menu-width: 460px;
+$navbar-padding-top: 15px;
+$color-text-menu: #383838;
+$panel-height: calc(100vh - 210px);
+$list-height: calc(100vh - 242px);
+$dashboard-border-color: #d4d5d6;
+$danger: #ff3019;
+$success: #1bb267;
+
+
+$font-family: 'Raleway';
+$font-size: 16px;
+
+/* custom colors */
+
+/* text color */
+$color-text-primary: #404040;
+$color-text-secondary: #666666;
+$color-text-tertiary: #999999;
+$color-text-light: #cccccc;
+
+/* bg color */
+$color-primary: #c39000;
+$color-secondary: #5c87ff;
+$color-tertiary: #6699ff;
+$color-dark: #1247b3;
+$intro-section-bg-mobile: #3267f0;
+
+/* decoration color */
+$filter-deco: hue-rotate(0deg) brightness(100%);
+$filter-deco-primary: hue-rotate(120deg) brightness(97%);
+$filter-deco-secondary: hue-rotate(20deg) brightness(80%);
+$filter-deco-tertiary: hue-rotate(50deg) brightness(75%);
+$filter-deco-quaternary: hue-rotate(270deg) brightness(94%);
+
+$navbar-height: 70px;
+$navbar-logo-width: 350px;
+$navbar-link-min-width: 260px;
+$navbar-user-width: 360px;
+
+$search-menu-height: 90px;
+$button-height: 50px;
+
+$card-margin: 7.5px;
+
+$blue-component-container-width: calc(1140px + (100% - 1140px) / 2);
+
+$modal-card-title-color: #000;
+
+$modal-card-head-background-color: #fff;
+$modal-card-head-justify-content: center;
+$modal-card-head-border-bottom: none;
+$modal-card-foot-border-top: none;
+$modal-card-title-size: 32px;
+$modal-card-body-padding: 0 80px;

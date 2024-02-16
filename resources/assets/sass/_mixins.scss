@@ -1,0 +1,263 @@
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+
+@mixin center-vertical {
+    top: 50%;
+    transform: translateY(-50%);
+}
+@mixin drop-shadow($a, $b, $c, $d, $f) {
+    -webkit-box-shadow: $a $b $c $d $f;
+    box-shadow: $a $b $c $d $f;
+}
+@mixin drop-shadow-inner($a, $b, $c, $d, $f) {
+    -webkit-box-shadow: inset $a $b $c $d $f;
+    box-shadow: inset $a $b $c $d $f;
+}
+@mixin fine-border($color: #ebecf0, $location: 'all') {
+    @if $location == 'all' {
+        border: 1px solid $color;
+    }
+
+    @else if $location == 'bottom' {
+        border-bottom: 1px solid $color;
+    }
+
+    @else if $location == 'left' {
+        border-left: 1px solid $color;
+    }
+
+    @else if $location == 'right' {
+        border-right: 1px solid $color;
+    }
+
+    @else if $location == 'top' {
+        border-top: 1px solid $color;
+    }
+}
+@mixin scroll-bar-custom($color-thumb, $color-rail) {
+    .ps__scrollbar-y-rail {
+		// display: block!important;
+        background: $color-rail!important;
+        opacity: 1!important;
+        width: 2px!important;
+        // margin-right: 5px!important;
+        margin-top: 10px;
+		// height: 100%!important;
+
+        &:active,
+        &:hover {
+            .ps__scrollbar-y {
+                width: 6px!important;
+
+            }
+        }
+
+        .ps__scrollbar-y {
+            background: $color-thumb!important;
+            right: -2px!important;
+			// max-height: 126px!important;
+            &:active,
+            &:hover {
+                width: 6px!important;
+            }
+        }
+    }
+}
+@mixin placeholders ($color) {
+    &::-webkit-input-placeholder {
+        /* WebKit, Blink, Edge */
+        color: $color;
+    }
+
+    &:-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: $color;
+        opacity: 1;
+    }
+
+    &::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: $color;
+        opacity: 1;
+    }
+
+    &:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: $color;
+    }
+
+    &::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: $color;
+    }
+}
+@mixin flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+@mixin flex-direction-row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+@mixin flex-grow($a) {
+    -webkit-box-flex: $a;
+    -ms-flex-positive: $a;
+    flex-grow: $a;
+}
+
+@mixin flex-shrink($a) {
+    -ms-flex-negative: $a;
+
+        flex-shrink: $a;
+}
+
+@mixin justify-content-start {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+@mixin justify-content-center {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+@mixin justify-content-space-between {
+	-webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+@mixin justify-content-end {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+@mixin flex-direction-column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+@mixin transition($x...) {
+    -webkit-transition: $x;
+    -o-transition: $x;
+    transition: $x;
+}
+@mixin align-items($a) {
+    -webkit-box-align: $a;
+    -ms-flex-align: $a;
+    align-items: $a;
+}
+@mixin flex-flow-column-wrap {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+}
+
+@mixin flex-item ($x) {
+
+    -ms-flex: $x;
+        flex: $x;
+
+}
+
+@mixin flex-wrap ($x) {
+
+    -ms-flex-wrap: $x;
+
+        flex-wrap: $x;
+
+}
+
+@mixin box-sizing($x) {
+
+    -webkit-box-sizing: $x;
+        box-sizing: $x;
+
+}
+
+@mixin box-shadow($x...) {
+    -webkit-box-shadow: $x;
+        box-shadow: $x;
+}
+
+@mixin basic-box-shadow {
+
+    @include box-shadow(0 3px 5px -1px rgba(0,0,0,.04), 0 4px 8px rgba(0,0,0,.03), 0 1px 16px rgba(0,0,0,.02));
+
+}
+
+// @mixin basic-box-shadow-no-side {
+// 	@include box-shadow(-10 3px 5px -1px rgba(0,0,0,.04), -10 4px 8px rgba(0,0,0,.03), -10 1px 16px rgba(0,0,0,.02));
+// }
+
+@mixin context-box-shadow {
+
+    @include box-shadow(0 3px 8px -1px rgba(0, 0, 0, 0.12), 0 4px 14px rgba(0, 0, 0, 0.08), 0 1px 22px rgba(0, 0, 0, 0.06));
+
+}
+
+@mixin accent-box-shadow {
+
+    @include box-shadow(0 3px 5px -1px rgba(0, 0, 0, 0.22), 0 6px 10px rgba(0, 0, 0, 0.08), 0 1px 18px rgba(0, 0, 0, 0.06));
+
+}
+
+@mixin context-menu-box-shadow {
+
+    @include box-shadow(0 6px 12px -4px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.14), 0 2px 24px rgba(0, 0, 0, 0.06));
+
+
+}
+
+@mixin flex-flow($x) {
+	-ms-flex-flow: $x;
+    flex-flow: $x;
+}

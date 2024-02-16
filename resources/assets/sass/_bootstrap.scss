@@ -1,0 +1,136 @@
+html, body {
+    // overflow: hidden;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    // overflow-y: hidden!important;
+    //
+    // overflow-y: auto!important;
+    // overflow: auto!important;
+    //
+    //
+}
+
+body {
+    // @media(max-width: 1024px) {
+    //     position: fixed;
+    //     width: 100%;
+    //     // height: auto;
+    // }
+}
+
+label {
+    letter-spacing: 0.8px;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+*{
+    outline: none;
+    -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+}
+
+body {
+    font-family: "Raleway", sans-serif;
+    font-size: 14px;
+
+    .columns {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    background: #fff;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+#app {
+    @include flex;
+    @include flex-direction-column;
+
+    // min-width: 1260px;
+
+    height: 100vh;
+    // min-height: 700px;
+
+    @media (max-width: 1260px) {
+        // height: calc(100vh - 17px);
+    }
+
+    &.presentation-app {
+        overflow-x: hidden;
+        overflow-y: hidden;
+        min-width: auto;
+        // min-height: 100vh;
+        min-height: calc(100vh - #{$navbar-height + 10});
+        height: auto;
+        @media (max-width: 1260px) {
+            height: auto;
+            min-height: calc(100vh - #{$navbar-height + 10});
+
+        }
+
+        // @media (max-width: 1024px) {
+        //     min-height: 100vh;
+        // }
+
+        .main-wrapper {
+            // overflow-y: auto;
+            // overflow-x: hidden;
+            // @include flex;
+            // @include flex-direction-column;
+            // @include flex-grow(1);
+            // height: 100%;
+        }
+    }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: all .1s ease-in-out;
+}
+.fade-enter, .fade-leave-to
+/* .component-fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.fade-item-enter-active, .fade-item-leave-active {
+  transition: all .2s ease-in-out;
+
+}
+.fade-item-enter
+/* .component-fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.fade-item-leave-to {
+    opacity: 0;
+    background: #d3d3d3;
+}
+
+@include scroll-bar-custom(#afb1b3, #d4d7d9);
+
+.ps__rail-x,
+.ps__rail-y {
+  opacity: 0.6!important;
+}
+
+.ps__scrollbar-y-rail {
+    cursor: pointer;
+    margin-top: 20px;
+    right: 15px!important;
+    margin-right: 0px!important;
+
+    @media (max-width: 738px) {
+        right: 0px!important;
+    }
+}

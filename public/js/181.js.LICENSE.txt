@@ -1,0 +1,32 @@
+/*!
+ * Clamp.js 0.7.0
+ *
+ * Copyright 2011-2013, Joseph Schmitt http://joe.sh
+ * Released under the WTFPL license
+ * http://sam.zoy.org/wtfpl/
+ */
+
+/*!
+ * perfect-scrollbar v1.4.0
+ * (c) 2018 Hyunje Jun
+ * @license MIT
+ */
+
+/*!
+ * perfect-scrollbar v1.5.3
+ * Copyright 2021 Hyunje Jun, MDBootstrap and Contributors
+ * Licensed under MIT
+ */
+
+/*!
+ * vue-infinite-loading v2.4.5
+ * (c) 2016-2020 PeachScript
+ * MIT License
+ */
+
+/**!
+ * Sortable 1.10.2
+ * @author	RubaXa   <trash@rubaxa.org>
+ * @author	owenm    <owen23355@gmail.com>
+ * @license MIT
+ */

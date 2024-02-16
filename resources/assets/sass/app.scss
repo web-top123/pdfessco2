@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700");
+
+@import "font";
+
+@import "variables";
+
+@import "mixins";
+
+@import "bootstrap";
+
+@import "components";
+
+@import "navbar";
+
+@import "dashboard";
+
+@import "presentation";
+
+@import "manage-users";
+
+@import "reset";
+
+@import "modals";
+
+@import "~bulma/sass/utilities/_all";
+// @import "~bulma/sass/base/_all";
+// @import "~bulma/sass/base/minireset";
+// @import "~bulma/sass/base/generic";
+@import "~bulma/sass/base/helpers";
+
+
+
+@import "~bulma/sass/elements/content";
+@import "~bulma/sass/elements/form";
+@import "~bulma/sass/elements/button";
+@import "~bulma/sass/elements/image";
+@import "~bulma/sass/components/modal";
+
+
+@import "~components-font-awesome/data/scss/font-awesome";
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+@import "~vue-multiselect/dist/vue-multiselect.min";
+
+@import "shame";
+
+
+
+
+.file-enter-active, .file-leave-active {
+    transition: all 1s;
+}
+.file-enter, .file-leave-to /* .list-leave-active below version 2.1.8 */ {
+    background-color: $color-dark;
+    transition: all 1s;
+    opacity: 0;
+}
+
+.ps__rail-x,
+.ps__rail-y {
+  opacity: 0.6!important;
+}
+
+.manage-timeouts.table-wrapper {
+
+    .table-container {
+
+        #table_wrapper {
+            min-height: 449px;
+        }
+    }
+}
+
+.timeout-table-button {
+    font-size: 16px;
+    color: $color-primary;
+    background: none;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    &.disabled {
+        cursor: auto;
+        color: #bbbdbf;
+    }
+}
+
+.timeout-individual-input-text {
+    color: #999999;
+    .active {
+        color: #404040;
+    }
+}
+
+.timeout-individual-input {
+    display: none;
+    input {
+        display: block;
+        border: none;
+        width: 100px;
+        margin-right: 0px!important;
+    }
+
+    button:first-of-type {
+        margin-left: 110px;
+    }
+
+    &.active {
+        display: block;
+    }
+}

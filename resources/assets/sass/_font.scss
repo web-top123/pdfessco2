@@ -1,0 +1,43 @@
+$icomoon-font-path: "../fonts" !default;
+
+$icon-context-menu-icon: "\e900";
+$icon-ic_file_upload_black_24px: "\e901";
+
+@font-face {
+  font-family: 'pdfglue-icon-set';
+  src:  url('#{$icomoon-font-path}/pdfglue-icon-set.eot?x5g1io');
+  src:  url('#{$icomoon-font-path}/pdfglue-icon-set.eot?x5g1io#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/pdfglue-icon-set.ttf?x5g1io') format('truetype'),
+    url('#{$icomoon-font-path}/pdfglue-icon-set.woff?x5g1io') format('woff'),
+    url('#{$icomoon-font-path}/pdfglue-icon-set.svg?x5g1io#pdfglue-icon-set') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+i.pdfglue-icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'pdfglue-icon-set' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+i.pdfglue-icon.context-menu {
+  &:before {
+    content: $icon-context-menu-icon;
+    font-size: 6px;
+  }
+}
+i.pdfglue-icon.upload-file {
+  &:before {
+    content: $icon-ic_file_upload_black_24px;
+    font-size: 24px
+  }
+}

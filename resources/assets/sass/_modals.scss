@@ -1,0 +1,468 @@
+
+.modal-close{
+    background: none;
+    position: fixed;
+}
+
+// @import "~bulma/bulma";
+// @import "variables";
+// @import "mixins";
+// @import "components";
+
+.modal {
+
+    line-height: 1.5;
+
+    z-index: 99999999999999;
+
+
+    &.my-account{
+        .modal-card{
+            width: auto;
+            min-width: 520px;
+            max-width: 760px;
+        }
+        .control.change-pass{
+            text-align: center;
+            margin-top: 35px;
+        }
+        .control.change-pass .button{
+            border: none;
+            height: auto;
+            border-bottom: 2px solid transparent;
+            border-radius: 0;
+            color: $color-primary;
+            padding: 0;
+            text-decoration: none;
+            &:hover, &:active, &:focus {
+                background: #fff;
+                box-shadow: none;
+                border-bottom: 2px solid $color-primary;
+            }
+        }
+        .modal-card-foot .button.is-info{
+            @media (max-width:1024px){
+                flex-grow: 1;
+            }
+        }
+    }
+    .field:not(:last-child){
+        margin-bottom: 30px;
+    }
+    .label:not(:last-child){
+        margin-bottom: 8px;
+    }
+    .help{
+        margin-top: 8px;
+    }
+    .help.is-danger{
+        color: #ff4733;
+        font-weight: 600;
+        i.fa-exclamation-circle{
+            font-size: 16px;
+            margin-right: 5px;
+            vertical-align: text-bottom;
+        }
+    }
+    .modal-background {
+
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        .delete {
+            right: 20px;
+            top: 20px;
+            position: absolute;
+        }
+    }
+
+    z-index: 99999;
+    .input.is-medium{
+        height: 54px;
+        font-size: 16px;
+        padding: 0 15px;
+    }
+
+    .input, .textarea{
+        border-color: #d2d4d6;
+        border-width: 2px;
+        box-shadow: none;
+        border-radius: 8px;
+    }
+    .input, .textarea, .button{
+
+        color: $color-text-primary;
+        &:focus,&:active {
+            @include drop-shadow(0px, 2px, 5px, 1px, rgba(102, 153, 255, 0.15));
+            border-color: $color-tertiary
+        }
+        &.is-success:focus, &.is-success:active{
+            border-color: #7acca3
+        }
+        &.is-danger:focus, &.is-danger:active{
+            @include drop-shadow(0px, 2px, 5px, 1px, rgba(255, 120, 102, 0.15));
+            border-color: #ff7566
+        }
+    }
+    .button{
+        font-family: $font-family!important;
+        text-align: center;
+        font-weight: 500;
+        @include flex;
+        @include flex-direction-column;
+        padding-top: 12px;
+    }
+    .textarea{
+        padding: 10px 18px;
+        border-radius: 8px;
+        resize: none;
+        &.is-medium{
+            font-size: 16px;
+            padding: 15px;
+        }
+        &:not([rows]){
+            min-height: 136px;
+        }
+    }
+    .button.is-link{
+        text-decoration: none;
+        &:hover{
+            background: none;
+            border-bottom: 1px solid #fa1900;
+            color: #fa1900;
+        }
+        &:focus{
+            background: none;
+        }
+    }
+    .label.is-small{
+        font-size: 10px;
+        color: $color-text-tertiary;
+        padding-left: 15px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+    }
+    // .modal-card{
+    //     width: 760px;
+    // }
+    &.add-cover-modal, &.add-header-modal, &.add-divider, &.add-footer-modal{
+        .modal-card{
+            width: 760px;
+        }
+    }
+    .modal-card-head{
+        justify-content: center;
+        padding: 65px 80px 40px;
+        padding-top: 70px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    .modal-card-head .modal-card-title{
+        border-bottom: 1px solid $color-primary;
+        flex-grow: 0;
+        padding-bottom: 10px;
+        color: $color-text-primary;
+        font-weight: 300;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .modal-card-body {
+        // position: fixed;
+        // width: 100%;
+        overflow: visible;
+        padding: 0 60px;
+
+        .field.is-grouped .is-link {
+            color: $color-primary;
+            padding: 0 5px 5px;
+            border-bottom: 2px solid transparent;
+        }
+    }
+
+    .modal-card-foot{
+        justify-content: center;
+        padding: 40px 60px;
+        padding-bottom: 60px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        a.is-delete{
+            flex-grow: 2;
+            padding-left: 23px;
+            &.disabled-delete{
+                pointer-events: none;
+                cursor: auto;
+                span{
+                    color: #bbbdbf;
+                    font-weight: 500;
+                }
+            }
+            span{
+                border-bottom: 2px solid transparent;
+                color: $color-text-secondary;
+                padding-bottom: 5px;
+                &:hover{
+                    border-bottom: 2px solid #fa1900;
+                    color: #fa1900;
+                }
+            }
+        }
+        .button:first-of-type{
+            border-color: #666;
+            color: $color-text-secondary;
+            font-weight: 400;
+            @include drop-shadow(0px, 2px, 5px, 0px, rgba(0,0,0,0.1));
+            &:hover{
+                border-color: $color-primary;
+                color: $color-primary;
+                @include drop-shadow(0px, 1px, 5px, 0px, rgba(0,0,0,0.1));
+            }
+            &.dl-file{
+                color: #fff;
+                &:hover{
+                    color: #fff;
+                }
+            }
+        }
+
+        .button{
+            flex-grow: 1;
+            height: $button-height;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 400;
+            @include flex;
+            @include flex-direction-column;
+            padding: 0;
+            text-align: center;
+            &.is-info{
+                font-weight: 700;
+                transition: all .3s;
+                background-color: $color-primary;
+                flex-grow: 0;
+                width: 195px;
+                @include drop-shadow(0, 3px, 7.84px, 0.16px, rgba(0,0,0,0.15));
+                &:hover{
+                    background-color: $color-dark;
+                    @include drop-shadow(0, 4px, 7.84px, 0.16px, rgba(0,0,0,0.2));
+                }
+            }
+            &.is-success{
+                background-color: #1bb267;
+                @include drop-shadow(0, 3px, 7.84px, 0.16px, rgba(0, 0, 0, 0.15));
+                &:hover{
+                    background-color: #1bb267;
+                    @include drop-shadow(0, 4px, 7.84px, 0.16px, rgba(0, 0, 0, 0.2));
+                }
+
+            }
+        }
+
+    }
+    .ok-button,.save-button{
+        position: absolute;
+        left: 0;
+        right: 0;
+        line-height: $button-height;
+    }
+    .ok-button .fa{
+        vertical-align: middle;
+        font-size: 18px;
+    }
+    .ok-button.bounce-enter-active {
+      animation: bounce-in .3s;
+    }
+    .ok-button.bounce-leave-active {
+      display: none;
+    }
+    .save-button.bounce-enter-active{
+      animation: bounce-in .3s;
+    }
+    .save-button.bounce-leave-active{
+      display: none;
+    }
+    @keyframes bounce-in {
+      0% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1.3);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    .input.is-danger.bounce-enter-active,
+    .textarea.is-danger.bounce-enter-active{
+        border-color: #d2d4d6;
+    }
+    .error-message-flash.bounce-enter-active {
+        animation: bounce-big .15s;
+    }
+    .error-message-flash.bounce-leave-active {
+        animation: fade-away .15s;
+    }
+    @keyframes bounce-big {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.01);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    @keyframes fade-away {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    @keyframes border-blink{
+        0% {
+            border-color: #d2d4d6;
+        }
+        50% {
+            border-color: #ff7566;
+        }
+        100% {
+            border-color: #d2d4d6;
+        }
+    }
+    &.delete-header-confirmation{
+        .modal-card{
+            width: 460px;
+        }
+        .modal-card-head{
+            padding: 50px 55px 10px;
+        }
+        .modal-card-head .modal-card-title{
+            border: none;
+            color: #4d4d4d;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .modal-card-body{
+            padding: 0 55px;
+        }
+        .field p{
+            color: $color-text-secondary;
+            text-align: center;
+        }
+        .modal-card-foot{
+            padding: 25px 55px 40px;
+            .button.is-info.dl-file{
+                color: #fff;
+            }
+        }
+    }
+    &.add-divider{
+        .modal-card-foot{
+            .button{
+                &.is-info{
+                    flex-grow: 1;
+                }
+            }
+        }
+
+    }
+
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: #b2b2b2;
+      }
+      ::-moz-placeholder { /* Firefox 19+ */
+        color: #b2b2b2;
+      }
+      :-ms-input-placeholder { /* IE 10+ */
+        color: #b2b2b2;
+      }
+      :-moz-placeholder { /* Firefox 18- */
+        color: #b2b2b2;
+      }
+
+    @media (max-width:550px){
+        &.change-pass-container{
+            .modal-card{
+                min-width: auto;
+                width: 100%;
+                max-width: 100%;
+                .modal-card-foot{
+                    .button:first-of-type{
+                        width: 70px;
+                    }
+                }
+            }
+
+        }
+        &.my-account{
+            .modal-card-foot{
+                padding: 15px 30px 30px;
+            }
+        }
+        &.document-created-confirmation{
+
+            .modal-card-foot{
+                padding-top: 15px;
+            }
+        }
+        .input, .input.is-medium{
+            height: 42px;
+        }
+        .modal-card{
+            margin: 0;
+            overflow: auto;
+            input, textarea, .input, .textarea{
+                font-size: 14px;
+            }
+        }
+        .modal-card-head{
+            padding: 35px 30px 30px;
+            border-radius: 0;
+            .modal-card-title{
+                font-size: 24px;
+            }
+        }
+        .modal-card-body{
+            padding: 0 30px;
+
+
+        }
+        .modal-card-foot{
+            border-radius: 0;
+            padding: 35px 30px 30px;
+            .button{
+                height: 42px;
+                &:first-of-type{
+                    width: 100px;
+                }
+                &.is-info{
+                    width: 110px;
+                }
+            }
+        }
+    }
+}
+
+.modal-background{
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: hsla(0,0%,4%,.86);
+
+
+}
+#app{
+    .modal-content,
+    .modal-card{
+        overflow: auto;
+        position: relative;
+        max-width: 100%;
+    }
+
+}

@@ -1,0 +1,11 @@
+/*!
+ * perfect-scrollbar v1.5.3
+ * Copyright 2021 Hyunje Jun, MDBootstrap and Contributors
+ * Licensed under MIT
+ */
+
+/*!
+ * vue-infinite-loading v2.4.5
+ * (c) 2016-2020 PeachScript
+ * MIT License
+ */

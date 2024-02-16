@@ -1,0 +1,303 @@
+.styled-checkbox {
+    position: absolute; // take it out of document flow
+    opacity: 0; // hide it
+
+    & + label {
+        position: relative;
+        cursor: pointer;
+        padding: 0;
+        float: left;
+
+        &.disabled {
+            cursor:auto;
+        }
+
+        &.disabled:before {
+            background: #d2d3d4!important;
+            border: 1px solid #d2d3d4;
+        }
+
+        &.disabled:after {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: 12px;
+            background: #ffffff;
+            width: 2px;
+            height: 2px;
+            box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+            transform: rotate(45deg);
+
+        }
+    }
+    // Box.
+    & + label:before {
+        content: '';
+        margin-right: 10px;
+        margin-top: 4px;
+        display: inline-block;
+        vertical-align: text-top;
+        width: 16px;
+        height: 16px;
+        background: #f7f9fa;
+        border-radius: 3px;
+        border: 1px solid #a2a4a6;
+    }
+
+    &:checked + label:before {
+        background: $color-secondary;
+    }
+    // Checkmark. Could be replaced with an image
+    &:checked + label:after  {
+        content: '';
+        position: absolute;
+        left: 4px;
+        top: 13px;
+        background: #ffffff;
+        width: 2px;
+        height: 2px;
+        box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+        transform: rotate(45deg);
+    }
+    // Box hover
+    //
+    &:hover + label.disabled:before {
+        border: 1px solid #d2d3d4;
+    }
+
+    &:checked:hover + label:before {
+
+        background: $color-primary;
+
+    }
+
+    &:hover + label:before {
+        // background: #f35429;
+        border: 1px solid $color-primary;
+    }
+}
+
+.button-base {
+    font-family: 'Raleway';
+    background: #ffffff;
+    border: 1px solid $color-tertiary;
+    color: $color-primary;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 15px 20px;
+    max-height: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    height: 50px;
+    @include box-sizing(border-box);
+    &.borderless{
+        border: 1px solid #ebedf0
+    }
+    &:hover {
+        background: $color-primary;
+        border-color: $color-primary;
+        color: #ffffff;
+        // border: 1px ;
+        // @include drop-shadow(0px, 3px, 10px, 2px,rgba(0,0,0,0.15));
+        // @include box-shadow(0 4px 8px -1px rgba(0,0,0,.15), 0 7px 14px 1px rgba(0,0,0,.05), 0 2px 18px 2px rgba(0,0,0,.04));
+        // @include box-shadow(0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px rgba(0, 0, 0, 0.08), 0 1px 18px rgba(0, 0, 0, 0.06));
+        // @include context-box-shadow;
+        // @include box-shadow(0 3px 5px -1px rgba(0, 0, 0, 0.22), 0 6px 10px rgba(0, 0, 0, 0.08), 0 1px 18px rgba(0, 0, 0, 0.06));
+        @include accent-box-shadow;
+
+    }
+    // @include basic-box-shadow;
+    // @include drop-shadow(0px, 2px, 6px, 1px, rgba(0,0,0, 0.1));
+     @include box-shadow(0 3px 5px -1px rgba(0, 0, 0, 0.04), 0 6px 10px rgba(0, 0, 0, 0.03), 0 1px 18px rgba(0, 0, 0, 0.02));
+    //  @include context-box-shadow;
+
+    &:active {
+        @include basic-box-shadow;
+    }
+
+
+    &.clear {
+        border: 1px solid #ebecf0;
+    }
+
+    &.fill {
+        background: $color-primary;
+        color: #ffffff;
+        font-weight: 700;
+        border: none;
+
+    }
+
+    &.simple {
+        color: #4d4d4d;
+        border: 1px solid #4d4d4d;
+        padding: 8px 17px 10px;
+        @include basic-box-shadow;
+        &:hover {
+            background: #ffffff;
+        }
+        &.flex-button{
+            height: 42px;
+            &.button-icon{
+                width: 42px;
+                padding: 0;
+            }
+        }
+    }
+
+    &.button-icon {
+        padding: 7px 10px 0 10px;
+        &:hover {
+            color: #ffffff;
+            background: $color-primary;
+            border: 1px solid $color-primary;
+        }
+    }
+
+    &.button-delete {
+
+        @include fine-border(#ff4733);
+        color: #ff3019;
+
+        &:hover {
+            background: #ff3019;
+            border-color: #ff3019;
+            color: #ffffff;
+        }
+
+    }
+    &.is-danger{
+        border: 1px solid #ff4733;
+        color: #ff4733;
+        &:hover{
+            @include fine-border(#ff4733);
+            color: #ff3019;
+
+            &:hover {
+                background: #ff3019;
+                color: #ffffff;
+            }
+        }
+    }
+
+    &.main-button {
+            width: 100%;
+            font-size: 16px;
+            font-weight: 700;
+            outline: none;
+            @include context-box-shadow;
+            // @include box-shadow(0 3px 5px -1px rgba(0, 0, 0, 0.04), 0 6px 10px rgba(0, 0, 0, 0.03), 0 1px 18px rgba(0, 0, 0, 0.02));
+            &:hover {
+                // @include drop-shadow(0px, 2px, 8px, 1px,rgba(0,0,0,0.25));
+                background: $color-dark;
+                // @include box-shadow(0 3px 5px -1px rgba(0, 0, 0, 0.22), 0 6px 10px rgba(0, 0, 0, 0.08), 0 1px 18px rgba(0, 0, 0, 0.06));
+                // @include box-shadow(0 3px 8px -1px rgba(0, 0, 0, 0.12), 0 4px 14px rgba(0, 0, 0, 0.08), 0 1px 22px rgba(0, 0, 0, 0.06));
+                @include accent-box-shadow;
+
+
+            }
+
+            &:active {
+                @include basic-box-shadow;
+            }
+    }
+
+}
+.help{
+    line-height: 1;
+    margin-top: 8px;
+}
+
+.sortable-ghost {
+    // visibility: hidden;
+    background: #dcdde0 !important;
+}
+
+.sortable-chosen {
+    background: #dcdde0 !important;
+}
+
+.sortable-drag, .sortable-chosen {
+    // background: red !important;
+    opacity: 1!important;
+}
+
+.multiselect {
+    z-index: 1;
+    &:hover, &:focus {
+
+        .multiselect__select {
+            &:before {
+                color: $color-secondary!important;
+                border-color: $color-secondary transparent transparent !important;
+            }
+        }
+    }
+
+    .multiselect__select
+    {
+        // display: none;
+        z-index: 1;
+        top: 5px;
+
+    }
+
+    .multiselect__tags {
+
+        border: none;
+        // padding: 0;
+
+    }
+
+
+    .multiselect__content-wrapper {
+
+    overflow-x: hidden;
+    /* display: none; */
+    // top: 46.5px;
+    z-index: -1;
+        // @include drop-shadow(0px, 0px, 0px, 0px,rgba(0,0,0,0));
+        background: #fafafa;
+
+        z-index: 998100;
+
+        ul.multiselect__content {
+
+            li.multiselect__element {
+                border-bottom: 1px solid #e1e3e6;
+
+
+                span.multiselect__option.multiselect__option--highlight {
+
+                    background:$color-secondary;
+                    &::after {
+
+                        content: '';
+
+                    }
+                }
+
+            }
+        }
+
+
+    }
+
+}
+
+
+.button, .button-base{
+    transition: all .1s
+}
+.input, .textarea{
+    transition: border .1s;
+    font-family: Raleway;
+}
+.clear-search, .search-icon{
+    color: $color-text-tertiary;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
